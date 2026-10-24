@@ -1,17 +1,17 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { allProjects } from 'content-collections'
-import { m } from 'motion/react'
-import { DocsPageHeader } from '#/components/mdx/header.tsx'
-import { ProjectCard } from '#/components/project-card.tsx'
-import { fadeUp } from '#/lib/motion'
+import { createFileRoute } from "@tanstack/react-router";
+import { allProjects } from "content-collections";
+import { m } from "motion/react";
+import { DocsPageHeader } from "#/components/mdx/header.tsx";
+import { ProjectCard } from "#/components/project-card.tsx";
+import { fadeUp } from "#/lib/motion";
 
-export const Route = createFileRoute('/projects/')({
+export const Route = createFileRoute("/projects/")({
   component: ProjectRoute,
   loader: () => allProjects,
   head: () => ({
-    meta: [{ title: 'yogyy/projects · Web Developer' }],
+    meta: [{ title: "yogyy/projects · Web Developer" }],
   }),
-})
+});
 
 const list = {
   animate: {
@@ -20,22 +20,22 @@ const list = {
       delayChildren: 0.15,
     },
   },
-}
+};
 
 const item = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
-}
+};
 
 function ProjectRoute() {
-  const projects = Route.useLoaderData()
+  const projects = Route.useLoaderData();
 
   return (
     <div className="mx-auto pt-8">
       <m.div
-        initial={{ filter: 'opacity(0)' }}
-        animate={{ filter: 'opacity(1)' }}
-        transition={{ ...fadeUp.transition, delay: 0.15, ease: 'easeIn' }}
+        initial={{ filter: "opacity(0)" }}
+        animate={{ filter: "opacity(1)" }}
+        transition={{ ...fadeUp.transition, delay: 0.15, ease: "easeIn" }}
       >
         <DocsPageHeader
           heading="Projects"
@@ -56,5 +56,5 @@ function ProjectRoute() {
         ))}
       </m.ul>
     </div>
-  )
+  );
 }
