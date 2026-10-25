@@ -11,7 +11,7 @@ export const Route = createFileRoute("/posts/$postId")({
   head: ({ loaderData }) => ({
     meta: [
       {
-        title: loaderData?.title,
+        title: `yogyy/posts · ${loaderData?.title}`,
       },
       {
         name: "description",
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/posts/$postId")({
 function RouteComponent() {
   const post = Route.useLoaderData();
   return (
-    <div className="mx-auto mt-6 max-w-400 px-6 md:px-12">
+    <div className="mx-auto mt-6 max-w-400 md:px-6 lg:px-10">
       <MdxContent code={post.mdx} />
     </div>
   );

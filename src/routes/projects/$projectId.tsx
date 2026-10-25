@@ -14,6 +14,9 @@ export const Route = createFileRoute("/projects/$projectId")({
     if (!post) throw notFound();
     return post;
   },
+  head: ({ loaderData }) => ({
+    meta: [{ title: `yogyy/projects · ${loaderData?.title}` }],
+  }),
 });
 
 function RouteComponent() {
@@ -22,8 +25,8 @@ function RouteComponent() {
 
   if (toc.length === 0) return null;
   return (
-    <section className="mx-auto my-4 max-w-400 px-6 md:px-12">
-      <div>
+    <section className="mx-auto my-4 max-w-400 md:px-6 lg:px-10">
+      <div className="absolute top-19 left-0 md:static md:top-0">
         <Image
           alt={`Project ${project.description}`}
           className="rounded shadow"
@@ -34,6 +37,7 @@ function RouteComponent() {
           height={730}
         />
       </div>
+      <div className="aspect-video max-w-dvw bg-background md:hidden"></div>
       <div>
         <h1 className="mt-4 text-4xl font-bold text-primary">
           {project.title}
