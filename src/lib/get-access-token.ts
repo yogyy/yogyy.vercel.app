@@ -1,17 +1,17 @@
-import { env } from '@/env';
+import { env } from "@/env";
 
 export const getAccessToken = async (refresh_token: string) => {
-  const token = Buffer.from(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`).toString(
-    'base64',
-  );
+  const token = Buffer.from(
+    `${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`,
+  ).toString("base64");
 
-  const res = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
+  const res = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
     headers: {
       Authorization: `Basic ${token}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: new URLSearchParams({ grant_type: 'refresh_token', refresh_token }),
+    body: new URLSearchParams({ grant_type: "refresh_token", refresh_token }),
   });
 
   if (!res.ok) {

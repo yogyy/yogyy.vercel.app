@@ -1,71 +1,71 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-type ThemeMode = 'light' | 'dark' | 'auto'
+type ThemeMode = "light" | "dark" | "auto";
 
 function getInitialMode(): ThemeMode {
-  if (typeof window === 'undefined') {
-    return 'auto'
+  if (typeof window === "undefined") {
+    return "auto";
   }
 
-  const stored = window.localStorage.getItem('theme')
-  if (stored === 'light' || stored === 'dark' || stored === 'auto') {
-    return stored
+  const stored = window.localStorage.getItem("theme");
+  if (stored === "light" || stored === "dark" || stored === "auto") {
+    return stored;
   }
 
-  return 'auto'
+  return "auto";
 }
 
 function applyThemeMode(mode: ThemeMode) {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const resolved = mode === 'auto' ? (prefersDark ? 'dark' : 'light') : mode
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved = mode === "auto" ? (prefersDark ? "dark" : "light") : mode;
 
-  document.documentElement.classList.remove('light', 'dark')
-  document.documentElement.classList.add(resolved)
+  document.documentElement.classList.remove("light", "dark");
+  document.documentElement.classList.add(resolved);
 
-  if (mode === 'auto') {
-    document.documentElement.removeAttribute('data-theme')
+  if (mode === "auto") {
+    document.documentElement.removeAttribute("data-theme");
   } else {
-    document.documentElement.setAttribute('data-theme', mode)
+    document.documentElement.setAttribute("data-theme", mode);
   }
 
-  document.documentElement.style.colorScheme = resolved
+  document.documentElement.style.colorScheme = resolved;
 }
 
 export default function ThemeToggle() {
-  const [mode, setMode] = useState<ThemeMode>('auto')
+  const [mode, setMode] = useState<ThemeMode>("auto");
 
   useEffect(() => {
-    const initialMode = getInitialMode()
-    setMode(initialMode)
-    applyThemeMode(initialMode)
-  }, [])
+    const initialMode = getInitialMode();
+    setMode(initialMode);
+    applyThemeMode(initialMode);
+  }, []);
 
   useEffect(() => {
-    if (mode !== 'auto') {
-      return
+    if (mode !== "auto") {
+      return;
     }
 
-    const media = window.matchMedia('(prefers-color-scheme: dark)')
-    const onChange = () => applyThemeMode('auto')
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = () => applyThemeMode("auto");
 
-    media.addEventListener('change', onChange)
+    media.addEventListener("change", onChange);
     return () => {
-      media.removeEventListener('change', onChange)
-    }
-  }, [mode])
+      media.removeEventListener("change", onChange);
+    };
+  }, [mode]);
 
   function toggleMode() {
     const nextMode: ThemeMode =
-      mode === 'light' ? 'dark' : mode === 'dark' ? 'auto' : 'light'
-    setMode(nextMode)
-    applyThemeMode(nextMode)
-    window.localStorage.setItem('theme', nextMode)
+      mode === "light" ? "dark" : mode === "dark" ? "auto" : "light";
+    setMode(nextMode);
+    applyThemeMode(nextMode);
+    window.localStorage.setItem("theme", nextMode);
   }
 
   const label =
-    mode === 'auto'
-      ? 'Theme mode: auto (system). Click to switch to light mode.'
-      : `Theme mode: ${mode}. Click to switch mode.`
+    mode === "auto"
+      ? "Theme mode: auto (system). Click to switch to light mode."
+      : `Theme mode: ${mode}. Click to switch mode.`;
 
   return (
     <button
@@ -73,17 +73,17 @@ export default function ThemeToggle() {
       onClick={toggleMode}
       aria-label={label}
       title={label}
-      className="rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-1.5 font-semibold text-(--sea-ink) text-sm shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
+      className="rounded-full border border-(--chip-line) bg-(--chip-bg) px-3 py-1.5 text-sm font-semibold text-(--sea-ink) shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
     >
-      {mode === 'auto' ? (
+      {mode === "auto" ? (
         <LucideMonitorCog />
-      ) : mode === 'dark' ? (
+      ) : mode === "dark" ? (
         <HeroiconsMoon />
       ) : (
         <HeroiconsSun />
       )}
     </button>
-  )
+  );
 }
 
 export function HeroiconsMoon() {
@@ -104,7 +104,7 @@ export function HeroiconsMoon() {
         d="M21.752 15.002A9.7 9.7 0 0 1 18 15.75A9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.75 9.75 0 0 0 3 11.25A9.75 9.75 0 0 0 12.75 21a9.75 9.75 0 0 0 9.002-5.998"
       />
     </svg>
-  )
+  );
 }
 
 export function HeroiconsSun() {
@@ -125,7 +125,7 @@ export function HeroiconsSun() {
         d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0a3.75 3.75 0 0 1 7.5 0"
       />
     </svg>
-  )
+  );
 }
 
 export function LucideMonitorCog() {
@@ -149,5 +149,5 @@ export function LucideMonitorCog() {
         <circle cx="18" cy="6" r="3" />
       </g>
     </svg>
-  )
+  );
 }

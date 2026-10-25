@@ -2,36 +2,36 @@ import {
   GithubIcon,
   GmailIcon,
   LinkedInIcon,
-} from '#/components/icons/simple-icons'
+} from "#/components/icons/simple-icons";
 
 export const socialItems = [
   {
-    label: 'Github',
-    href: 'https://github.com/yogyy',
+    label: "Github",
+    href: "https://github.com/yogyy",
     icon: GithubIcon,
-    text: 'yogyy',
+    text: "yogyy",
   },
   {
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/in/yogyy',
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/yogyy",
     icon: LinkedInIcon,
-    text: 'yogyy',
+    text: "yogyy",
   },
   {
-    label: 'Email',
-    href: 'mailto:m.yogi.fs@gmail.com',
+    label: "Email",
+    href: "mailto:m.yogi.fs@gmail.com",
     icon: GmailIcon,
-    text: 'm.yogi.fs@gmail.com',
+    text: "m.yogi.fs@gmail.com",
   },
-]
+];
 
 export const navItems = [
   {
-    label: 'posts',
-    href: '/posts',
+    label: "posts",
+    href: "/posts",
   },
   {
-    label: 'projects',
-    href: '/projects',
+    label: "projects",
+    href: "/projects",
   },
-]
+];

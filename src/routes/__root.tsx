@@ -1,45 +1,45 @@
-import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
-import { domAnimation, LazyMotion } from 'motion/react'
-import { Footer } from '#/components/footer.tsx'
-import PostHogProvider from '#/components/integrations/posthog-provider.tsx'
-import RulerLines from '#/components/ruler-lines.tsx'
-import Navbar from '#/components/section/navbar'
-import NotFoundPage from '#/components/section/not-found.tsx'
-import { ThemeProvider } from '#/components/theme-provider'
-import { TooltipProvider } from '#/components/ui/tooltip'
-import appCss from '../styles.css?url'
+import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { domAnimation, LazyMotion } from "motion/react";
+import { Footer } from "#/components/footer.tsx";
+import PostHogProvider from "#/components/integrations/posthog-provider.tsx";
+import RulerLines from "#/components/ruler-lines.tsx";
+import Navbar from "#/components/section/navbar";
+import NotFoundPage from "#/components/section/not-found.tsx";
+import { ThemeProvider } from "#/components/theme-provider";
+import { TooltipProvider } from "#/components/ui/tooltip";
+import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: 'utf-8',
+        charSet: "utf-8",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
       },
       {
-        title: 'yogyy/index · Web Developer',
+        title: "yogyy/index · Web Developer",
       },
       {
-        name: 'description',
+        name: "description",
         content:
           "I'm a full-stack web developer specializing in React and Typescript.",
       },
       {
-        name: 'google-site-verification',
-        content: 'JVpqF5Cgob5E2frmdM4QbSaMyZB5oT4Oolt9x_-qclk',
+        name: "google-site-verification",
+        content: "JVpqF5Cgob5E2frmdM4QbSaMyZB5oT4Oolt9x_-qclk",
       },
     ],
     links: [
-      { rel: 'stylesheet', href: appCss },
-      { rel: 'canonical', href: `https://yogyy.vercel.app/` },
+      { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: `https://yogyy.vercel.app/` },
     ],
   }),
   shellComponent: RootDocument,
   notFoundComponent: NotFoundPage,
-})
+});
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -70,5 +70,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

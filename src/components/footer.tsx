@@ -1,4 +1,4 @@
-import { GithubIcon } from '#/components/icons/simple-icons'
+import { GithubIcon } from "#/components/icons/simple-icons";
 
 export function Footer() {
   return (
@@ -17,5 +17,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

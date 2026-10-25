@@ -19,5 +19,5 @@ export function UserRound(props: React.SVGProps<SVGSVGElement>) {
         <path d="M20 21a8 8 0 0 0-16 0"></path>
       </g>
     </svg>
-  )
+  );
 }

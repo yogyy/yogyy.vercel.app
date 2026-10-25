@@ -1,4 +1,4 @@
-import type { IconBaseProps } from '.'
+import type { IconBaseProps } from ".";
 
 export function HonoIcon(props: IconBaseProps) {
   return (
@@ -22,5 +22,5 @@ export function HonoIcon(props: IconBaseProps) {
         </linearGradient>
       </defs>
     </svg>
-  )
+  );
 }

@@ -59,7 +59,7 @@ const RulerLines = ({ variant = "left" }: RulerLinesProps) => {
   return (
     <div
       ref={ref}
-      className="absolute hidden md:block bg-background select-none pointer-events-none"
+      className="pointer-events-none absolute hidden bg-background select-none md:block"
       style={{
         top: 0,
         [variant]: 0,
@@ -68,7 +68,7 @@ const RulerLines = ({ variant = "left" }: RulerLinesProps) => {
         zIndex: 40,
       }}
     >
-      <svg width={width} height={height} className="bg-background block">
+      <svg width={width} height={height} className="block bg-background">
         <title>ruler lines</title>
         <line
           x1={baselineX}

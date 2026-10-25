@@ -1,12 +1,12 @@
-import { Link } from '@tanstack/react-router'
-import { navItems } from '#/lib/constant'
+import { Link } from "@tanstack/react-router";
+import { navItems } from "#/lib/constant";
 
 export default function Navbar() {
   return (
     <header className="sticky inset-x-0 top-0 z-30 shadow-[0_2px_0_0_var(--color-border)]">
       <a
         href="#skip-nav"
-        className="group absolute top-1 left-12 z-99 -translate-y-16 rounded-sm bg-background p-2 font-medium text-foreground transition focus:translate-y-0 focus:outline-none focus:ring focus:ring-chart-1"
+        className="group absolute top-1 left-12 z-99 -translate-y-16 rounded-sm bg-background p-2 font-medium text-foreground transition focus:translate-y-0 focus:ring focus:ring-chart-1 focus:outline-none"
       >
         skip to content
       </a>
@@ -14,7 +14,7 @@ export default function Navbar() {
         <div className="relative flex items-center justify-center border-r-2">
           <Link to="/" className="p-2 px-6">
             <span className="inline-flex items-baseline">
-              <span className="font-medium text-foreground text-lg tracking-[-0.03em]">
+              <span className="text-lg font-medium tracking-[-0.03em] text-foreground">
                 yg
               </span>
             </span>
@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               to={item.href}
-              className="p-2 text-foreground/90 text-md hover:text-chart-1"
+              className="text-md p-2 text-foreground/90 hover:text-chart-1"
             >
               <span className="font-medium">{item.label}</span>
             </Link>
@@ -34,5 +34,5 @@ export default function Navbar() {
         </div>
       </nav>
     </header>
-  )
+  );
 }

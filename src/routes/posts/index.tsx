@@ -1,17 +1,17 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { allPosts } from 'content-collections'
-import { m } from 'motion/react'
-import { LinkMotion } from '#/components/link-motion.tsx'
-import { DocsPageHeader } from '#/components/mdx/header.tsx'
-import { fadeUp } from '#/lib/motion.ts'
+import { createFileRoute } from "@tanstack/react-router";
+import { allPosts } from "content-collections";
+import { m } from "motion/react";
+import { LinkMotion } from "#/components/link-motion.tsx";
+import { DocsPageHeader } from "#/components/mdx/header.tsx";
+import { fadeUp } from "#/lib/motion.ts";
 
-export const Route = createFileRoute('/posts/')({
+export const Route = createFileRoute("/posts/")({
   component: ProjectRoute,
   loader: () => allPosts,
   head: () => ({
-    meta: [{ title: 'yogyy/posts · Web Developer' }],
+    meta: [{ title: "yogyy/posts · Web Developer" }],
   }),
-})
+});
 
 const list = {
   animate: {
@@ -20,22 +20,22 @@ const list = {
       delayChildren: 0.15,
     },
   },
-}
+};
 
 const item = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
-}
+};
 
 function ProjectRoute() {
-  const posts = Route.useLoaderData()
+  const posts = Route.useLoaderData();
 
   return (
     <div className="mx-auto pt-8">
       <m.div
-        initial={{ filter: 'opacity(0)' }}
-        animate={{ filter: 'opacity(1)' }}
-        transition={{ ...fadeUp.transition, delay: 0.15, ease: 'easeIn' }}
+        initial={{ filter: "opacity(0)" }}
+        animate={{ filter: "opacity(1)" }}
+        transition={{ ...fadeUp.transition, delay: 0.15, ease: "easeIn" }}
       >
         <DocsPageHeader heading="Posts" text="Some of my posts" />
       </m.div>
@@ -56,7 +56,7 @@ function ProjectRoute() {
               to={`/posts/${post._meta.path}`}
               className="flex w-full flex-col space-y-2.5 p-3"
             >
-              <p className="text-foreground/40 text-xs">{post.date}</p>
+              <p className="text-xs text-foreground/40">{post.date}</p>
 
               <div className="relative w-full">
                 <h1 className="text-lg md:text-[1.25em]">{post.title}</h1>
@@ -67,5 +67,5 @@ function ProjectRoute() {
         ))}
       </m.ul>
     </div>
-  )
+  );
 }

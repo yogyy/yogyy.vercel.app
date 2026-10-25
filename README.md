@@ -1,7 +1,6 @@
 personal website and blog
 
 **tech stack**
-
 - [typescript](https://typescriptlang.org/)
 - [tanstack](https://tanstack.com/)
 - [tailwindcss](https://tailwindcss.com/)

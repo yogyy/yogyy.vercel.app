@@ -4,7 +4,7 @@
     "**/*.tsx",
     "eslint.config.js",
     "prettier.config.js",
-    "vite.config.js",
+    "vite.config.js"
   ],
 
   "compilerOptions": {
@@ -14,7 +14,7 @@
     "paths": {
       "#/*": ["./src/*"],
       "@/*": ["./src/*"],
-      "content-collections": ["./.content-collections/generated"],
+      "content-collections": ["./.content-collections/generated"]
     },
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["vite/client"],
@@ -31,6 +31,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-  },
+    "noUncheckedSideEffectImports": true
+  }
 }

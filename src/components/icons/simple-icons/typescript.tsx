@@ -1,4 +1,4 @@
-import type { IconBaseProps } from '.'
+import type { IconBaseProps } from ".";
 
 export function TypescriptIcon(props: IconBaseProps) {
   return (
@@ -28,5 +28,5 @@ export function TypescriptIcon(props: IconBaseProps) {
         </clipPath>
       </defs>
     </svg>
-  )
+  );
 }

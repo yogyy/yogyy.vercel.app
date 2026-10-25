@@ -17,5 +17,5 @@ export function ArrowRight(props: React.SVGProps<SVGSVGElement>) {
         d="M5 12h14m-7-7l7 7l-7 7"
       ></path>
     </svg>
-  )
+  );
 }

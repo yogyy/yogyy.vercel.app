@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
 import {
   HonoIcon,
   MongodbIcon,
@@ -11,27 +11,27 @@ import {
   SvelteIcon,
   TailwindcssIcon,
   UpstashIcon,
-} from '#/components/icons/simple-icons'
+} from "#/components/icons/simple-icons";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '#/components/ui/tooltip'
+} from "#/components/ui/tooltip";
 
-export type TechListType = keyof typeof techList
+export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
-  techs: Array<TechListType>
-} & React.ComponentPropsWithoutRef<'ul'>
+  techs: Array<TechListType>;
+} & React.ComponentPropsWithoutRef<"ul">;
 
 export default function TechMdx({ techs }: TechIconsProps) {
   return (
     <ul className="flex w-fit flex-wrap gap-2">
       {techs.map((tech) => {
-        if (!techList[tech]) return null
+        if (!techList[tech]) return null;
 
-        const current = techList[tech]
+        const current = techList[tech];
 
         return (
           <li className="h-fit w-fit p-2 text-xl" key={current.name}>
@@ -56,66 +56,66 @@ export default function TechMdx({ techs }: TechIconsProps) {
               </Tooltip>
             </TooltipProvider>
           </li>
-        )
+        );
       })}
     </ul>
-  )
+  );
 }
 
 const techList = {
   react: {
     icon: ReactIcon,
-    name: 'React',
-    link: 'https://react.dev/',
+    name: "React",
+    link: "https://react.dev/",
   },
   nodejs: {
     icon: NodejsIcon,
-    name: 'Node JS',
-    link: 'https://nodejs.org/en',
+    name: "Node JS",
+    link: "https://nodejs.org/en",
   },
   nextjs: {
     icon: NextjsIcon,
-    name: 'Next JS',
-    link: 'https://nextjs.org/',
+    name: "Next JS",
+    link: "https://nextjs.org/",
   },
   hono: {
     icon: HonoIcon,
-    name: 'Hono',
-    link: 'https://hono.dev/',
+    name: "Hono",
+    link: "https://hono.dev/",
   },
   sqlite: {
     icon: SqliteIcon,
-    name: 'SQLite',
-    link: 'https://www.sqlite.org/index.html',
+    name: "SQLite",
+    link: "https://www.sqlite.org/index.html",
   },
   sveltekit: {
     icon: SvelteIcon,
-    name: 'SvelteKit',
-    link: 'https://svelte.dev/docs/kit/introduction',
+    name: "SvelteKit",
+    link: "https://svelte.dev/docs/kit/introduction",
   },
   tailwindcss: {
     icon: TailwindcssIcon,
-    name: 'Tailwind CSS',
-    link: 'https://tailwindcss.com/',
+    name: "Tailwind CSS",
+    link: "https://tailwindcss.com/",
   },
   mongodb: {
     icon: MongodbIcon,
-    name: 'MongoDB',
-    link: 'https://www.mongodb.com/',
+    name: "MongoDB",
+    link: "https://www.mongodb.com/",
   },
   shadcnui: {
     icon: ShadcnuiIcon,
-    name: 'shadcn/ui',
-    link: 'https://ui.shadcn.com/',
+    name: "shadcn/ui",
+    link: "https://ui.shadcn.com/",
   },
   reactquery: {
     icon: ReactqueryIcon,
-    name: 'React Query',
-    link: 'https://tanstack.com/',
+    name: "React Query",
+    link: "https://tanstack.com/",
   },
   upstash: {
     icon: UpstashIcon,
-    name: 'Upstash',
-    link: 'https://upstash.com/',
+    name: "Upstash",
+    link: "https://upstash.com/",
   },
-}
+};

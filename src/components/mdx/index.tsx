@@ -1,24 +1,24 @@
-import { useMDXComponent } from '@content-collections/mdx/react'
-import { cn } from '@/lib/utils'
-import TechMdx from './tech-mdx'
+import { useMDXComponent } from "@content-collections/mdx/react";
+import { cn } from "@/lib/utils";
+import TechMdx from "./tech-mdx";
 
 // import './mdx.css?url'
 
 const components = {
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
-      <table className={cn('w-full', className)} {...props} />
+      <table className={cn("w-full", className)} {...props} />
     </div>
   ),
   TechMdx,
-}
+};
 
 interface MdxProps {
-  code: string
+  code: string;
 }
 
 export function MdxContent({ code }: MdxProps) {
-  const Component = useMDXComponent(code)
+  const Component = useMDXComponent(code);
 
   return (
     <div className="content">
@@ -26,5 +26,5 @@ export function MdxContent({ code }: MdxProps) {
         <Component components={components} />
       </div>
     </div>
-  )
+  );
 }

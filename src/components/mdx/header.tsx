@@ -18,7 +18,7 @@ export function DocsPageHeader({
   return (
     <>
       <div className={cn("space-y-4", className)} {...props}>
-        <m.h1 className="inline-block pt-10 font-heading·font-semibold·font-space-grotesk·text-6xl">
+        <m.h1 className="font-heading·font-semibold·font-space-grotesk·text-6xl inline-block pt-10">
           <GradientHeading>{heading}</GradientHeading>
         </m.h1>
         {text && (

@@ -1,11 +1,11 @@
-import { Image } from '@unpic/react'
-import type { Project } from 'content-collections'
-import { ArrowRight } from './icons/internal/arrow-right'
-import { LinkMotion } from './link-motion'
-import { Icon } from './project-card-icon'
+import { Image } from "@unpic/react";
+import type { Project } from "content-collections";
+import { ArrowRight } from "./icons/internal/arrow-right";
+import { LinkMotion } from "./link-motion";
+import { Icon } from "./project-card-icon";
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
@@ -13,11 +13,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
     <LinkMotion to={`/projects/${project._meta.path}`}>
       <div className="relative flex h-full w-full flex-col items-start rounded-md p-4">
         <div className="mb-1 inline-flex w-full gap-4 sm:mb-0">
-          <h1 className="text-nowrap font-mono font-semibold text-foreground/80 text-xl transition-colors group-focus-within:text-chart-1 group-hover:text-chart-1">
+          <h1 className="font-mono text-xl font-semibold text-nowrap text-foreground/80 transition-colors group-focus-within:text-chart-1 group-hover:text-chart-1">
             {project.title}
           </h1>
         </div>
-        <p className="mb-auto text-foreground/50 text-sm">
+        <p className="mb-auto text-sm text-foreground/50">
           {project.description}
         </p>
         <Image
@@ -30,7 +30,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         />
         <div className="mt-2 flex w-full justify-between">
           <div className="flex items-center gap-2 text-foreground">
-            {project.techs?.split(', ').map((tech) => (
+            {project.techs?.split(", ").map((tech) => (
               <Icon
                 key={tech}
                 icon={tech}
@@ -39,12 +39,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             ))}
           </div>
 
-          <p className="animated-underline flex items-center gap-1 place-self-end font-medium text-foreground text-sm">
+          <p className="animated-underline flex items-center gap-1 place-self-end text-sm font-medium text-foreground">
             See more
             <ArrowRight className="h-4.5 w-4.5 transition-colors group-focus-within:text-chart-1 group-hover:text-chart-1" />
           </p>
         </div>
       </div>
     </LinkMotion>
-  )
-}
+  );
+};
